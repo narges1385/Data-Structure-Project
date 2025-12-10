@@ -72,22 +72,21 @@ public class Parking {
     //O(m*n)
     public void move(int i, int j){
     if(stacks[i].isEmpty()){
-        System.out.println("Stack " + i + " is empty!");
+        System.out.println("Stack " + (i+1) + " is empty!");
         return;
     }
     while(!stacks[i].isEmpty()){
-        Car car = stacks[i].pop();
         boolean placed = false;
         for(int k = j; k < n; k++){
             if(stacks[k].size() < m){
-                stacks[k].push(car);
+                stacks[k].push(stacks[i].pop());
                 placed = true;
                 break;
             }
         }
 
         if(!placed){
-            System.out.println("No space available for car " + car.getCarId());
+            System.out.println("No space available for car " + stacks[i].getHead().getCar().getCarId());
             break;
         }
     }

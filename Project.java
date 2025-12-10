@@ -104,7 +104,7 @@ public class Project{
                             System.out.println("more than capacity!");
                             break;
                     }
-                    parking.move(i, j);
+                    parking.move(i-1, j-1);
                     break;
 
                 case 0:
